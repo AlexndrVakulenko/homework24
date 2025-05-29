@@ -1,0 +1,14 @@
+#Описание ключа для хоста client
+key "client-key" {
+	algorithm hmac-sha256;
+	secret "yv2POfIWWOjM9CWqRF8PHRzYA52FEttp6KL87mu3BUY=";
+};
+
+#Описание ключа для хоста client2
+key "client2-key" {
+	algorithm hmac-sha256;
+	secret "RNEfqq+llC5T2+EsEhQ6jqXniXklwPxblKyc95dCFRg=";
+};
+#Описание access-листов
+acl client { !key client2-key; key client-key; 192.168.50.15; };
+acl client2 { !key client-key; key client2-key; 192.168.50.16; };
